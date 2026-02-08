@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 function Toggle() {
-  // Boolean state - true = shown, false = hidden
   const [isVisible, setIsVisible] = useState(true);
 
   function handleToggle() {
@@ -9,36 +8,25 @@ function Toggle() {
   }
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Show / Hide Toggle</h2>
+    <div className="p-5">
+      <h2 className="text-xl font-semibold mb-4">Show / Hide Toggle</h2>
 
       <button
         onClick={handleToggle}
-        style={{
-          padding: "10px",
-          fontSize: "16px",
-        }}
+        className="px-5 py-2.5 text-base font-medium text-white bg-blue-600 rounded hover:bg-blue-700 active:bg-blue-800 transition-colors"
       >
         {isVisible ? "Hide Content" : "Show Content"}
       </button>
 
       {isVisible && (
-        <div
-          style={{
-            padding: "20px",
-            backgroundColor: 'white',
-            border: "2px solid blue",
-            borderRadius: "8px",
-            maxWidth: "500px"
-          }}
-        >
-          <h3>Secret Content</h3>
-          <p>This content is now visible</p>
+        <div className="mt-5 p-5 bg-white border-2 border-blue-600 rounded-lg max-w-[500px]">
+          <h3 className="text-lg font-medium mb-2">Secret Content</h3>
+          <p className="text-gray-700">This content is now visible</p>
         </div>
       )}
 
       {!isVisible && (
-        <p style={{ color: "#666"}}>
+        <p className="mt-4 text-gray-600 italic">
           Content is hidden right now
         </p>
       )}
